@@ -1,0 +1,23 @@
+//created on: Mar 1, 2016
+package drools_rules
+
+//list any import classes here.
+
+import com.gavin.test.drools.two.Applicant;
+import com.gavin.test.drools.two.Application;
+
+//declare any global variables here
+
+rule "Is of valid age" when
+    a : Applicant( age > 18 )
+then
+    a.setValid( true );
+    System.out.println(a.getName());
+    System.out.println(a.getAge());
+end
+
+rule "Application was made this year" when
+    $a : Application( dateApplied > "01-jan-2009" )     
+then
+    $a.setValid( true );
+end
